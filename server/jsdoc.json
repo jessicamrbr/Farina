@@ -1,0 +1,8 @@
+{
+  "source": {
+    "exclude": [
+      "node_modules",
+      "bin"
+    ]
+  }
+}

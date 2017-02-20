@@ -1,0 +1,115 @@
+<form data-ng-submit="$ctrl.fns.submitAppointmentForm()">
+  <md-content>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="Geral">
+         <md-content layout-padding>
+          <md-input-container class="md-block md-icon-float md-icon-right md-block">
+            <label>{{$ctrl.labels.complaint}}</label>
+            <textarea
+              rows="5" md-select-on-focus
+              ng-model="$ctrl.genVars.currentAppointmentData.fld_queixa"
+              ng-disabled="$ctrl.genVars.formBlock" id="fld_queixa"></textarea>
+              <ng-md-icon icon="mic"
+                class="md-icon-right" ng-click="$ctrl.fns.micListen('fld_queixa')"></ng-md-icon>
+          </md-input-container>
+           <md-input-container class="md-block">
+            <label>{{$ctrl.labels.anamnesis}}</label>
+            <textarea
+              rows="5" md-select-on-focus
+              ng-model="$ctrl.genVars.currentAppointmentData.fld_anamnese"
+              ng-disabled="$ctrl.genVars.formBlock" id="fld_anamnese"></textarea>
+              <ng-md-icon icon="mic"
+                class="md-icon-right" ng-click="$ctrl.fns.micListen('fld_anamnese')"></ng-md-icon>
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label>{{$ctrl.labels.conduct}}</label>
+            <textarea
+              rows="5" md-select-on-focus
+              ng-model="$ctrl.genVars.currentAppointmentData.fld_conduta"
+              ng-disabled="$ctrl.genVars.formBlock" id="fld_conduta"></textarea>
+              <ng-md-icon icon="mic"
+                class="md-icon-right" ng-click="$ctrl.fns.micListen('fld_conduta')"></ng-md-icon>
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label>{{$ctrl.labels.observation}}</label>
+            <textarea
+              rows="5" md-select-on-focus
+              ng-model="$ctrl.genVars.currentAppointmentData.fld_observacao"
+              ng-disabled="$ctrl.genVars.formBlock" id="fld_observacao"></textarea>
+              <ng-md-icon icon="mic"
+                class="md-icon-right" ng-click="$ctrl.fns.micListen('fld_observacao')"></ng-md-icon>
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label>{{$ctrl.labels.diagnosis}}</label>
+            <md-chips
+              ng-model="$ctrl.genVars.currentAppointmentData.fld_diagnostico" md-autocomplete-snap
+              md-transform-chip="ctrl.fns.transformToChip($chip)"
+              md-require-match="true">
+              <md-autocomplete
+                flex-xs="100" flex-gt-xs="100"
+                md-input-minlength="4"
+                md-min-length="4"
+                md-input-maxlength="255"
+                md-dropdown-items="6"
+                md-no-cache="ctrl.searchBox.noCache"
+                md-search-text="ctrl.searchBox.qString"
+                md-selected-item="ctrl.searchBox.selectedItem"
+                md-items="item in $ctrl.fns.querySearch(ctrl.searchBox.qString)"
+                md-item-text="item.fld_codigo"
+                md-menu-class="autocompleteSearchCids">
+                <md-item-template>
+                  <span md-highlight-text="ctrl.searchText" style="word-wrap: break-word;">
+                    {{item.fld_codigo}} - {{item.fld_descricao}} [{{item.fld_situacao}}]
+                  </span>
+                  <md-divider ng-if="!$last" style="margin-top:5px;"></md-divider>
+                </md-item-template>md-item-template>
+              </md-autocomplete>
+              <md-chip-template>
+                <span>
+                  <strong>{{$chip.fld_codigo}} </strong><em>[{{$chip.fld_situacao}}]</em>
+                  <strong>- {{$chip.fld_descricao}} </strong>
+                </span>
+              </md-chip-template>
+            </md-chips>
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label>{{$ctrl.labels.returnRecommendations}}</label>
+            <textarea
+              rows="5" md-select-on-focus
+              ng-model="$ctrl.genVars.currentAppointmentData.fld_retornoRecomendacoes"
+              ng-disabled="$ctrl.genVars.formBlock" id="fld_retornoRecomendacoes"></textarea>
+              <ng-md-icon icon="mic"
+                class="md-icon-right" ng-click="$ctrl.fns.micListen('fld_retornoRecomendacoes')"></ng-md-icon>
+          </md-input-container>
+        </md-content>
+      </md-tab>
+      <md-tab label="Especializado">
+        <md-content class="md-padding">
+          <md-input-container class="md-block">
+            <label>{{$ctrl.labels.interrogationAndMeasures}}</label>
+            <textarea
+              rows="5" md-select-on-focus
+              ng-model="$ctrl.genVars.currentAppointmentData.fld_interrogatoriosMedidas"
+              ng-disabled="$ctrl.genVars.formBlock" id="fld_interrogatoriosMedidas"></textarea>
+              <ng-md-icon icon="mic"
+                class="md-icon-right" ng-click="$ctrl.fns.micListen('fld_interrogatoriosMedidas')"></ng-md-icon>
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label>{{$ctrl.labels.evaluationOfPreviousExams}}</label>
+            <textarea
+              rows="5" md-select-on-focus
+              ng-model="$ctrl.genVars.currentAppointmentData.fld_avaliacaoExamesAnteriores"
+              ng-disabled="$ctrl.genVars.formBlock" id="fld_avaliacaoExamesAnteriores"></textarea>
+              <ng-md-icon icon="mic"
+                class="md-icon-right" ng-click="$ctrl.fns.micListen('fld_avaliacaoExamesAnteriores')"></ng-md-icon>
+          </md-input-container>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+</form>
+<md-button
+   aria-label="menu" class="md-fab md-primary md-fab-bottom-right-farina"
+   ng-click="$ctrl.fns.showMenuBottom()">
+  <ng-md-icon icon="menu" style=""></ng-md-icon>
+</md-button>

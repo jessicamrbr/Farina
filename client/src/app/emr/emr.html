@@ -1,0 +1,50 @@
+<top-bar></top-bar>
+<md-toolbar ng-cloak>
+  <div class="md-toolbar-tools">
+    <h2 class="flex-80">
+      <span>{{$ctrl.labels.attendingBar}}</span>
+    </h2>
+    <div class="flex-20" layout="row" layout-align="end center">
+      <md-button class="md-fab md-mini md-raised" aria-label="$ctrl.btns.lblShowNotifications"
+        data-ng-click="$ctrl.fns.togleAppointments()">
+        <ng-md-icon icon="folder_shared" style=""></ng-md-icon>
+      </md-button>
+    </div>
+  </div>
+</md-toolbar>
+<md-sidenav class="md-sidenav-left" md-component-id="sideNavAppointments" md-whiteframe="4" ng-cloak>
+  <md-toolbar layout="row">
+    <h1 flex class="md-toolbar-tools">{{$ctrl.labels.historic}}</h1>
+    <md-button
+      class="md-fab md-mini md-raised" aria-label="$ctrl.btns.createDrg"
+      ng-click="$ctrl.fns.createDrg()">
+      <ng-md-icon icon="create_new_folder" style=""></ng-md-icon>
+    </md-button>
+  </md-toolbar>
+  <div layout="column" ng-repeat="item in $ctrl.genVars.currentDrgList">
+    <div layout="row">
+      <md-subheader flex>{{item.fld_drgName}}</md-subheader>
+      <md-button
+        class="md-fab md-mini md-raised" aria-label="$ctrl.btns.createAppointment"
+        ng-click="$ctrl.fns.acessAppointment(item._id, '')">
+        <ng-md-icon icon="add_to_queue" style=""></ng-md-icon>
+      </md-button>
+    </div>
+    <md-divider></md-divider>
+    <div ng-repeat="subitem in item.arr_consultas">
+      <md-list-item layout="row" class="md-2-line">
+        <div flex class="md-list-item-text">
+          <h3>{{subitem.fld_data | amDateFormat:'DD/MM/YYYY HH:mm'}}</h3>
+          <p>{{subitem.fld_especialidade}}</p>
+        </div>
+        <md-button
+          class="md-fab md-mini md-raised" aria-label="{{$ctrl.labels.selectAppointment}}"
+          data-ng-click="$ctrl.fns.acessAppointment(item._id, subitem._id)">
+          <ng-md-icon icon="dvr"></ng-md-icon>
+        </md-button>
+      </md-list-item>
+      <md-divider></md-divider>
+    </div>
+  </div>
+</md-sidenav>
+<ui-view></ui-view>

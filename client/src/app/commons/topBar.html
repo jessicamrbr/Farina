@@ -1,0 +1,28 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <md-button class="md-fab md-mini" aria-label="$ctrl.btns.lblShowNotifications"
+      ng-click="$ctrl.fns.showState('resume', '')">
+      <ng-md-icon icon="new_releases" style="fill: white"></ng-md-icon>
+    </md-button>
+    <h2>
+      <span>{{$ctrl.genVars.currentUser.fld_nome}}</span>
+    </h2>
+  </div>
+</md-toolbar>
+
+<md-fab-speed-dial md-open="$ctrl.fabDialIsOpen" md-direction="{{$ctrl.fabDialSelectedDirection}}"
+  ng-class="$ctrl.fabDialSelectedMode">
+  <md-fab-trigger>
+    <md-button class="md-fab md-accent md-mini" aria-label="$ctrl.btns.lblShowMenu">
+      <md-tooltip md-direction="left">{{$ctrl.btns.lblShowMenu}}</md-tooltip>
+      <ng-md-icon icon="more_vert" style="fill: white"></ng-md-icon>
+    </md-button>
+  </md-fab-trigger>
+  <md-fab-actions ng-repeat="item in $ctrl.fabDialDataList | filter : $ctrl.genVars.currentUser.fld_tipo">
+    <md-button class="md-fab md-raised md-mini" aria-label="item.label"
+               ng-click="$ctrl.fns.showState(item.toState, item.prevFn)">
+      <md-tooltip md-direction="left">{{item.label}}</md-tooltip>
+      <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+    </md-button>
+  </md-fab-actions>
+</md-fab-speed-dial>

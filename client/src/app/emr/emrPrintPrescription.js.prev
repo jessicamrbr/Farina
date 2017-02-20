@@ -1,0 +1,78 @@
+var doc = new jsPDF();
+doc
+    .rect(10, 10, 190, 45);
+doc
+    .setFont("helvetica").setFontType("bold").setFontSize(12)
+    .text(15, 20, 'Data: ')
+    .setFont("courier").setFontType("normal")
+    .text(27, 20, '99/99/9999');
+doc
+    .rect(170, 15, 23, 20)
+    .text(172, 20, 'Logo');
+doc
+    .setFont("helvetica").setFontType("bold")
+    .text(60, 20, 'CPF: ')
+    .setFont("courier").setFontType("normal")
+    .text(72, 20, '999.999.999-99');
+doc
+    .setFont("helvetica").setFontType("bold")
+    .text(15, 30, 'Utilizador: ')
+    .setFont("courier").setFontType("normal")
+    .text(37, 30, 'Nome social*-------------------------------------');
+doc
+    .setFont("helvetica").setFontType("bold").setFontSize(9)
+    .text(15, 35, '(*Nome legal: ')
+    .setFont("courier").setFontType("normal")
+    .text(35, 35, 'Fulane----------------------------------------------------------')
+    .setFont("helvetica").setFontType("bold")
+    .text(160, 35, ')');
+doc
+    .setFont("helvetica").setFontType("bold").setFontSize(12)
+    .text(15, 45, 'D. nasc: ')
+    .setFont("courier").setFontType("normal")
+    .text(33, 45, '99/99/9999');
+doc
+    .setFont("helvetica").setFontType("bold").setFontSize(12)
+    .text(67, 45, 'Endereço: ')
+    .setFont("courier").setFontType("normal")
+    .text(90, 45, doc.splitTextToSize("##################################################################################", 105));
+doc
+    .rect(10, 60, 190, 192);
+doc
+    .setFont("helvetica").setFontType("bold").setFontSize(20)
+    .text(85, 68, 'Prescrição');
+doc
+    .setFont("helvetica").setFontType("bold").setFontSize(12)
+    .text(15, 80, 'Item: ')
+    .setFont("courier").setFontType("normal")
+    .text(27, 80, "1");
+doc
+    .setFont("helvetica").setFontType("bold").setFontSize(12)
+    .text(35, 80, 'Nome: ')
+    .setFont("courier").setFontType("normal")
+    .text(52, 80, "###########################");
+doc
+    .setFont("helvetica").setFontType("bold").setFontSize(12)
+    .text(15, 87, 'Descrição: ')
+    .setFont("courier").setFontType("normal")
+    .text(40, 87, doc.splitTextToSize("#################################################################################################################################################################", 154));
+doc
+    .rect(10, 258, 190, 30);
+doc
+    .setFont("helvetica").setFontType("bold").setFontSize(12)
+    .text(15, 265, 'Profissional: ')
+    .setFont("courier").setFontType("normal")
+    .text(43, 265, '############################################################');
+doc
+    .setFont("helvetica").setFontType("bold").setFontSize(12)
+    .text(15, 274, 'Número no conselho: ')
+    .setFont("courier").setFontType("normal")
+    .text(62, 274, '#####################');
+doc
+    .setFont("helvetica").setFontType("bold").setFontSize(12)
+    .text(15, 283, 'Assinatura: ')
+    .setFont("courier").setFontType("normal")
+    .text(43, 283, '____________________________________________________________');
+
+//doc.autoPrint()
+//doc.save('a4.pdf')

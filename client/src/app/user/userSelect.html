@@ -1,0 +1,51 @@
+<md-content class="md-padding">
+  <form ng-submit="$event.preventDefault()">
+    <div layout="row" layout-wrap>
+      <md-autocomplete
+        flex-xs="100" flex-gt-xs="100"
+        md-input-name="autocompleteField"
+        md-input-minlength="4"
+        md-min-length="4"
+        md-input-maxlength="255"
+        md-dropdown-items="10"
+        md-no-cache="ctrl.searchBox.noCache"
+        md-search-text="ctrl.searchBox.qString"
+        md-selected-item="ctrl.searchBox.selectedItem"
+        md-items="item in $ctrl.fns.querySearch(ctrl.searchBox.qString)"
+        md-item-text="item.fld_nome"
+        md-floating-label="{{$ctrl.labels.searchUser}}"
+        md-menu-class="autocompleteSearchUser">
+        <md-item-template>
+          <div class="autocompleteSearchUserTplRow">
+            <div class="autocompleteSearchUserTplCellLeft">
+              <span class="detailCell" style="font-size:26px;">
+                {{item.fld_cadastroPessoaFisica | mask:'999.999.999-99'}}
+              </span>
+              <span class="detailCell">
+                {{item.fld_nome}}{{item.fld_nome != item.fld_nomeLegal ? '*': ''}}</span>
+              <span class="detailCell">{{item.fld_filiacao}}</span>
+              <span class="detailCell">
+                {{item.fld_dataNascimento | amDateFormat:'DD/MM/YYYY'}} | {{item.fld_tipo}}
+              </span>
+            </div>
+            <div class="autocompleteSearchUserTplCellRight">
+              <md-button class="md-fab md-mini md-primary" aria-label="Favorite"
+                ng-click="$ctrl.fns.selectedToShow('user.edit', item.fld_nome, item.fld_tipo, item._id)">
+                <ng-md-icon icon="account_box"></ng-md-icon>
+              </md-button>
+              <md-button
+                class="md-fab md-mini md-primary" aria-label="Favorite" ng-if="$ctrl.searchBox.emrBtnDisplay"
+                ng-click="$ctrl.fns.selectedToShow('emr', item.fld_nome, item.fld_tipo, item._id)">
+                <ng-md-icon icon="history"></ng-md-icon>
+              </md-button>
+            </div>
+          </div>
+        </md-item-template>
+        <md-not-found>
+          {{$ctrl.labels.userNotFound}}"{{$ctrl.searchText}}".
+          <a ng-click="$ctrl.fns.newUser()">{{$ctrl.btns.userNew}}</a>
+        </md-not-found>
+      </md-autocomplete>
+    </div>
+  </form>
+</md-content>

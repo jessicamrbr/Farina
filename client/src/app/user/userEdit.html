@@ -1,0 +1,249 @@
+<form name="editPerfil" id="editPerfil" ng-submit="$ctrl.fns.requestUpdateUser()" layout="column">
+  <div flex layout="row" layout-wrap class="md-padding">
+    <md-subheader class="md-primary" flex="100">{{$ctrl.labels.divPerfil}}</md-subheader>
+  </div>
+  <div flex layout="row" layout-wrap class="md-padding">
+    <md-input-container flex-xs="100" flex-sm="50" flex-gt-sm="33">
+      <label>{{$ctrl.labels.registerNumber}}</label>
+      <input
+        type="text" aria-label="$ctrl.labels.registerNumber" name="fld_cadastroPessoaFisica"
+        required ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_cadastroPessoaFisica"
+        mask='999.999.999-99' clean="true"
+        restrict="reject" validate="true">
+        <div ng-messages="editPerfil.fld_cadastroPessoaFisica.$error" role="alert">
+          <div ng-message="required">{{$ctrl.frm.errorRiquered}}</div>
+          <div ng-message="mask">{{$ctrl.frm.errorFormat}}</div>
+        </div>
+    </md-input-container>
+    <md-input-container flex-xs="100" flex-sm="50" flex-gt-sm="33">
+      <label>{{$ctrl.labels.healthCardNumber}}</label>
+      <input
+        type="text" aria-label="$ctrl.labels.healthCardNumber" name="fld_cartaoSUS"
+        required ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_cartaoSUS"
+        mask='999 9999 9999 9999' clean="true"
+        restrict="reject" validate="true">
+        <div ng-messages="editPerfil.fld_cartaoSUS.$error" role="alert">
+          <div ng-message="required">{{$ctrl.frm.errorRiquered}}</div>
+          <div ng-message="mask">{{$ctrl.frm.errorFormat}}</div>
+        </div>
+    </md-input-container>
+    <md-input-container flex-xs="100" flex-sm="50" flex-gt-sm="33" ng-if="$ctrl.frm.typeDisplay">
+      <label>{{$ctrl.labels.type}}</label>
+      <md-select
+        aria-label="$ctrl.labels.type"
+        ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_tipo">
+        <md-option ng-repeat="option in $ctrl.frm.typeOptions" value="{{option}}">
+          {{option}}
+        </md-option>
+      </md-select>
+    </md-input-container>
+  </div>
+  <div flex layout="row" layout-wrap class="md-padding">
+    <md-input-container flex-xs="100" flex-sm="60" flex-gt-sm="66">
+      <label>{{$ctrl.labels.email}}</label>
+      <input
+        type="email" aria-label="$ctrl.labels.email" name="fld_email"
+        required ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_email">
+        <div ng-messages="editPerfil.fld_email.$error" role="alert">
+          <div ng-message="required">{{$ctrl.frm.errorRiquered}}</div>
+          <div ng-message="email">{{$ctrl.frm.errorFormatEmail}}</div>
+        </div>
+    </md-input-container>
+    <md-input-container flex-xs="100" flex-sm="40" flex-gt-sm="33">
+      <label>{{$ctrl.labels.password}}</label>
+      <input
+        type="password" aria-label="$ctrl.labels.password" name="fld_senha"
+        required ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_senha">
+        <div ng-messages="editPerfil.fld_senha.$error" role="alert">
+          <div ng-message="required">{{$ctrl.frm.errorRiqueredPassword}}</div>
+        </div>
+    </md-input-container>
+  </div>
+  <div flex layout="row" layout-wrap class="md-padding">
+    <md-input-container flex-xs="100" flex-sm="50" flex-gt-sm="33">
+      <label>{{$ctrl.labels.name}}</label>
+      <input
+        type="text" aria-label="$ctrl.labels.name" name="fld_nome"
+        required ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_nome"
+        ng-blur="$ctrl.fns.changeName()">
+        <div ng-messages="editPerfil.fld_nome.$error" role="alert">
+          <div ng-message="required">{{$ctrl.frm.errorRiquered}}</div>
+        </div>
+    </md-input-container>
+    <md-input-container flex-xs="100" flex-sm="50" flex-gt-sm="33">
+      <label>{{$ctrl.labels.legalName}}</label>
+      <input
+        type="text" aria-label="$ctrl.labels.legalName" name="fld_nomeLegal"
+        required ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_nomeLegal">
+        <div ng-messages="editPerfil.fld_nomeLegal.$error" role="alert">
+          <div ng-message="required">{{$ctrl.frm.errorRiquered}}</div>
+        </div>
+    </md-input-container>
+    <md-input-container flex-xs="100" flex-sm="50" flex-gt-sm="33">
+      <label>{{$ctrl.labels.parentName}}</label>
+      <input
+        type="text" aria-label="$ctrl.labels.parentName"
+        ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_filiacao">
+    </md-input-container>
+  </div>
+  <div flex layout="row" layout-wrap class="md-padding">
+    <md-input-container flex-xs="100" flex-sm="50" flex-gt-sm="33">
+      <label>{{$ctrl.labels.gender}}</label>
+      <input
+        type="text" aria-label="$ctrl.labels.gender"
+        ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_genero">
+    </md-input-container>
+    <md-input-container flex-xs="100" flex-sm="25" flex-gt-sm="33">
+      <label>{{$ctrl.labels.birthGender}}</label>
+      <md-select
+        aria-label="$ctrl.labels.birthGender"
+        ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_generoAtribuidoNascimento">
+        <md-option ng-repeat="option in $ctrl.frm.traditionalGenderOptions" value="{{option}}">
+          {{option}}
+        </md-option>
+      </md-select>
+    </md-input-container>
+    <md-input-container flex-xs="100" flex-sm="25" flex-gt-sm="33">
+      <label>{{$ctrl.labels.legalGender}}</label>
+      <md-select
+        aria-label="$ctrl.labels.legalGender"
+        ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_generoLegal">
+        <md-option ng-repeat="option in $ctrl.frm.traditionalGenderOptions" value="{{option}}">
+          {{option}}
+        </md-option>
+      </md-select>
+    </md-input-container>
+  </div>
+  <div flex layout="row" layout-wrap class="md-padding">
+    <md-input-container flex-xs="100" flex-sm="25" flex-gt-sm="33">
+      <label>{{$ctrl.labels.birthday}}</label>
+      <md-datepicker
+        aria-label="$ctrl.labels.birthday"
+        ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_dataNascimento" md-open-on-focus>
+      </md-datepicker>
+    </md-input-container>
+    <md-input-container flex-xs="100" flex-sm="50" flex-gt-sm="33">
+      <label>{{$ctrl.labels.naturalness}}</label>
+      <input
+        type="text" aria-label="$ctrl.labels.naturalness"
+        ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_naturalidade">
+    </md-input-container>
+    <md-input-container flex-xs="100" flex-sm="25" flex-gt-sm="33">
+      <label>{{$ctrl.labels.maritalStatus}}</label>
+      <md-select
+        aria-label="$ctrl.labels.maritalStatus"
+        ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_estadoCivil">
+        <md-option ng-repeat="option in $ctrl.frm.maritalStatusOptions" value="{{option}}">
+          {{option}}
+        </md-option>
+      </md-select>
+    </md-input-container>
+  </div>
+  <div flex layout="row" layout-wrap class="md-padding">
+    <md-input-container flex-xs="100" flex-sm="50" flex-gt-sm="33">
+      <label>{{$ctrl.labels.schooling}}</label>
+      <md-select
+        aria-label="$ctrl.labels.schooling"
+        ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_escolaridade">
+        <md-option ng-repeat="option in $ctrl.frm.schoolingOptions" value="{{option}}">
+          {{option}}
+        </md-option>
+      </md-select>
+    </md-input-container>
+    <md-input-container flex-xs="100" flex-sm="50" flex-gt-sm="33">
+      <label>{{$ctrl.labels.profession}}</label>
+      <input
+        type="text" aria-label="$ctrl.labels.profession"
+        ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_profissao">
+    </md-input-container>
+    <md-input-container flex-xs="100" flex-sm="50" flex-gt-sm="33">
+      <label>{{$ctrl.labels.occupation}}</label>
+      <input
+        type="text" aria-label="$ctrl.labels.occupation"
+        ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_ocupacao">
+    </md-input-container>
+  </div>
+  <div flex layout="row" layout-wrap class="md-padding">
+    <md-subheader class="md-primary" flex="100">{{$ctrl.labels.divContact}}</md-subheader>
+  </div>
+  <div flex layout="row" layout-wrap class="md-padding">
+    <md-input-container flex-xs="100" flex-sm="50" flex-gt-sm="15">
+      <label>{{$ctrl.labels.addressZip}}</label>
+      <input
+        type="text" aria-label="$ctrl.labels.addressZip"
+        ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_enderecoCEP"
+        mask='99999-999' clean="true"
+        restrict="reject" validate="true"
+        ng-blur="$ctrl.fns.requestAddressDataByViaCEP()">
+    </md-input-container>
+    <md-input-container flex-xs="100" flex-sm="50" flex-gt-sm="55">
+      <label>{{$ctrl.labels.addressStreet}}</label>
+      <input
+        type="text" aria-label="$ctrl.labels.addressStreet"
+        ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_enderecoLogradouro">
+    </md-input-container>
+    <md-input-container flex-xs="100" flex-sm="50" flex-gt-sm="15">
+      <label>{{$ctrl.labels.addressNumber}}</label>
+      <input
+        type="text" aria-label="$ctrl.labels.addressNumber"
+        ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_enderecoNumero">
+    </md-input-container>
+    <md-input-container flex-xs="100" flex-sm="50" flex-gt-sm="15">
+      <label>{{$ctrl.labels.addressComplement}}</label>
+      <input
+        type="text" aria-label="$ctrl.labels.addressComplement"
+        ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_enderecoComplemento">
+    </md-input-container>
+  </div>
+  <div flex layout="row" layout-wrap class="md-padding">
+    <md-input-container flex-xs="100" flex-sm="50" flex-gt-sm="25">
+      <label>{{$ctrl.labels.adreessNeighborhood}}</label>
+      <input
+        type="text" aria-label="$ctrl.labels.adreessNeighborhood"
+        ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_enderecoBairro">
+    </md-input-container>
+    <md-input-container flex-xs="100" flex-sm="50" flex-gt-sm="25">
+      <label>{{$ctrl.labels.addressCity}}</label>
+      <input
+        type="text" aria-label="$ctrl.labels.addressCity"
+        ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_enderecoCidade">
+    </md-input-container>
+    <md-input-container flex-xs="100" flex-sm="50" flex-gt-sm="25">
+      <label>{{$ctrl.labels.addressState}}</label>
+      <input
+        type="text" aria-label="$ctrl.labels.addressState"
+        ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_enderecoUF">
+    </md-input-container>
+    <md-input-container flex-xs="100" flex-sm="50" flex-gt-sm="25">
+      <label>{{$ctrl.labels.addressCountry}}</label>
+      <input
+        type="text" aria-label="$ctrl.labels.addressCountry"
+        ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_enderecoPais">
+    </md-input-container>
+  </div>
+      <div flex layout="row" layout-wrap class="md-padding">
+    <md-input-container flex-xs="100" flex-sm="50" flex-gt-sm="50">
+      <label>{{$ctrl.labels.contactMobilePhone}}</label>
+      <input
+        type="text" aria-label="$ctrl.labels.contactMobilePhone"
+        ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_contatoCelular"
+        mask='(99) 9?9999-9999' clean="true"
+        restrict="reject" validate="true">
+    </md-input-container>
+    <md-input-container flex-xs="100" flex-sm="50" flex-gt-sm="50">
+      <label>{{$ctrl.labels.contactPhone}}</label>
+      <input
+        type="text" aria-label="$ctrl.labels.contactPhone"
+        ng-model="$ctrl.genVars.currentlAttendingUserPerfil.fld_contatoTelefone"
+        mask='(99) 9999-9999' clean="true"
+        restrict="reject" validate="true">
+    </md-input-container>
+  </div>
+  <div flex layout="row" layout-wrap class="md-padding">
+    <md-button
+     class="md-raised md-primary" type="submit" form-scroll-validationed
+     flex-xs="100" flex-gt-xs="33">
+      {{$ctrl.btns.lblUpdate}}
+    </md-button>
+  </div>
+</form>

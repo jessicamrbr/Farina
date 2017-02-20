@@ -1,0 +1,39 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <h2>
+      <span>PEU Farina</span>
+    </h2>
+  </div>
+</md-toolbar>
+<form layout="column" layout-wrap class="md-padding"
+  ng-submit="$ctrl.fns.requestLogin(form, $event)" name="frmLogin">
+  <div flex layout="row" layout-wrap class="md-padding">
+    <md-input-container flex flex-xs="100" flex-gt-xs="33" flex-offset-gt-xs="33">
+      <label>{{$ctrl.labels.userId}}</label>
+      <input required ng-model="form.fld_cadastroPessoaFisica" name="fld_cadastroPessoaFisica"
+      mask='999.999.999-99' clean="true"
+      restrict="reject" validate="true">
+      <div ng-messages="frmLogin.fld_cadastroPessoaFisica.$error" role="alert">
+        <div ng-message="required">{{$ctrl.frm.errorRiquered}}</div>
+        <div ng-message="mask">{{$ctrl.frm.errorFormat}}</div>
+      </div>
+    </md-input-container>
+  </div>
+  <div flex layout="row" layout-wrap class="md-padding">
+    <md-input-container flex-xs="100" flex-gt-xs="33" flex-offset-gt-xs="33">
+      <label>{{$ctrl.labels.userPass}}</label>
+      <input required type="password" ng-model="form.fld_senha" name="fld_senha">
+      <div ng-messages="frmLogin.fld_senha.$error" role="alert">
+        <div ng-message="required">{{$ctrl.frm.errorRiquered}}</div>
+      </div>
+    </md-input-container>
+  </div>
+  <div flex layout="row" layout-wrap class="md-padding">
+    <md-input-container flex-xs="100" flex-gt-xs="33" flex-offset-gt-xs="33">
+      <md-button type="submit" class="md-raised md-primary">
+        {{$ctrl.btns.login}}</md-button>
+      <md-button class="md-raised" ng-click="$ctrl.fns.requestLogin(form, $event)">
+        {{$ctrl.btns.lostPass}}</md-button>
+    </md-input-container>
+  </div>
+</form>

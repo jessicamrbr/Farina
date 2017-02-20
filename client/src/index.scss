@@ -1,0 +1,86 @@
+body {
+  overflow-y: hidden !important;
+}
+
+code.itemPrescription {
+  background: rgba(0, 0, 0, 0.065);
+  display: block;
+  padding: 8px;
+  margin-bottom:  10px;
+}
+
+.itemPrescription md-input-container {
+  margin-bottom: 0px;
+}
+
+#bodyMdContente {
+  min-height: 100%;
+}
+
+ng-md-icon.md-icon-right {
+  left: auto !important;
+  right: 2px;
+  top: 0px !important;
+}
+
+md-fab-speed-dial.md-fab-top-right {
+  top: 0px;
+  right: 0px;
+}
+
+.md-button.md-fab.md-fab-bottom-right-farina {
+  left: auto;
+  top: auto;
+  right:  5px;
+  bottom:  5px;
+  position:  fixed;
+}
+
+md-bottom-sheet {
+  position: fixed
+}
+
+md-datepicker .md-datepicker-input-container {
+  min-width: 270px;
+}
+
+.autocompleteSearchUser li {
+  border-bottom: 1px solid #ccc;
+  padding: 8px;
+  white-space: normal;
+  line-height: normal;
+  height: auto;
+}
+
+.autocompleteSearchUser li:last-child {
+  border-bottom-width: 0; }
+
+.autocompleteSearchUserTplRow {
+  display: table-row;
+  width: 100%;
+}
+
+.autocompleteSearchUserTplRow .autocompleteSearchUserTplCellLeft {
+  display: table-cell;
+  width: 60%
+}
+
+.autocompleteSearchUserTplRow .autocompleteSearchUserTplCellRight {
+  display: table-cell;
+  width: 40%;
+}
+
+.autocompleteSearchUserTplRow .autocompleteSearchUserTplCellLeft .detailCell {
+  display: block;
+}
+
+.md-chips .md-chip-input-container md-autocomplete input {
+    min-width: 320px;
+}
+
+.autocompleteSearchCids li {
+  padding: 10px;
+  white-space: normal;
+  line-height: normal;
+  height: auto;
+}

@@ -1,0 +1,49 @@
+<md-dialog aria-label="{{$ctrlDlgPresc.labels.prescriptions}}"
+  ng-controller="emrCreatePrescription as $ctrlDlgPresc" >
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{$ctrlDlgPresc.labels.prescriptions}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="{{$ctrlDlgPresc.btns.close}}"
+          ng-click="$ctrlDlgPresc.fns.closeMe()">
+          <ng-md-icon icon="close" style=""></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div layout="column" layout-wrap
+        ng-repeat="itemPresc in $ctrlDlgPresc.genVars.currentPrescriptions.fld_descricao">
+        <code class="itemPrescription">
+          <div layout="row" layout-wrap>
+            <md-input-container flex="20">
+              <label>{{$ctrlDlgPresc.labels.itemNum}}</label>
+              <input ng-model="itemPresc.fld_ordem">
+            </md-input-container>
+            <md-input-container flex="80">
+              <label>{{$ctrlDlgPresc.labels.itemTit}}</label>
+              <input ng-model="itemPresc.fld_item">
+            </md-input-container>
+          </div>
+          <div layout="row" layout-wrap>
+            <md-input-container flex="100">
+              <label>{{$ctrlDlgPresc.labels.itemDesc}}</label>
+              <textarea ng-model="itemPresc.fld_DescricaoItem" md-maxlength="250" rows="3"></textarea>
+            </md-input-container>
+          </div>
+        </code>
+      </div>
+      <div layout="row" layout-wrap layout-align="end end" flex>
+        <md-button class="md-button" aria-label="{{$ctrlDlgPresc.btns.addItemList}}"
+         ng-click="$ctrlDlgPresc.fns.additem()">
+          <ng-md-icon icon="playlist_add" style=""></ng-md-icon> {{$ctrlDlgPresc.btns.addItemList}}
+        </md-button>
+        <md-button class="md-button" aria-label="{{$ctrlDlgPresc.btns.save}}"
+          ng-click="$ctrlDlgPresc.fns.savePresc()">
+          <ng-md-icon icon="save" style=""></ng-md-icon> {{$ctrlDlgPresc.btns.save}}
+        </md-button>
+      </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>

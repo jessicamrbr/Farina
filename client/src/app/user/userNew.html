@@ -1,0 +1,41 @@
+<form name="newPerfil" id="newPerfil" ng-submit="$ctrl.fns.requestCreatUser()" layout="column">
+  <div flex layout="row" layout-wrap class="md-padding">
+    <md-input-container flex flex-xs="100" flex-gt-xs="33" flex-offset-gt-xs="33">
+      <label>{{$ctrl.labels.email}}</label>
+      <input ng-model="$ctrl.genVars.currentNewUser.fld_email"
+        required type="email">
+        <div ng-messages="newPerfil.fld_email.$error" role="alert">
+          <div ng-message="required">{{$ctrl.frm.errorRiquered}}</div>
+          <div ng-message="email">{{$ctrl.frm.errorFormatEmail}}</div>
+        </div>
+    </md-input-container>
+  </div>
+  <div flex layout="row" layout-wrap class="md-padding">
+    <md-input-container flex flex-xs="100" flex-gt-xs="33" flex-offset-gt-xs="33">
+      <label>{{$ctrl.labels.cpf}}</label>
+      <input ng-model="$ctrl.genVars.currentNewUser.fld_cadastroPessoaFisica"
+        required mask='999.999.999-99' clean="true" restrict="reject" validate="true">
+        <div ng-messages="newPerfil.fld_cadastroPessoaFisica.$error" role="alert">
+          <div ng-message="required">{{$ctrl.frm.errorRiquered}}</div>
+          <div ng-message="mask">{{$ctrl.frm.errorFormat}}</div>
+        </div>
+    </md-input-container>
+  </div>
+  <div flex layout="row" layout-wrap class="md-padding">
+    <md-input-container flex flex-xs="100" flex-gt-xs="33" flex-offset-gt-xs="33">
+      <label>{{$ctrl.labels.csus}}</label>
+      <input ng-model="$ctrl.genVars.currentNewUser.fld_cartaoSUS"
+        required mask='999 9999 9999 9999' clean="true" restrict="reject" validate="true">
+        <div ng-messages="newPerfil.fld_cartaoSUS.$error" role="alert">
+          <div ng-message="required">{{$ctrl.frm.errorRiquered}}</div>
+          <div ng-message="mask">{{$ctrl.frm.errorFormat}}</div>
+        </div>
+    </md-input-container>
+  </div>
+  <div flex layout="row" layout-wrap class="md-padding">
+    <md-input-container flex flex-xs="100" flex-gt-xs="33" flex-offset-gt-xs="33">
+      <md-button class="md-raised md-primary" type="submit">
+        {{$ctrl.btns.lblRegister}}</md-button>
+    </md-input-container>
+  </div>
+</form>

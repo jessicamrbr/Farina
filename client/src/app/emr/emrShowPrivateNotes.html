@@ -1,0 +1,35 @@
+<md-dialog aria-label="{{$ctrlDlgPNotes.labels.prescriptions}}"
+  ng-controller="emrShowPrivateNotes as $ctrlDlgPNotes" >
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{$ctrlDlgPNotes.labels.privateNotes}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="{{$ctrlDlgPNotes.labels.close}}"
+          ng-click="$ctrlDlgPNotes.fns.closeMe()">
+          <ng-md-icon icon="close" style=""></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content" layout="column" layout-wrap>
+        <div layout="row" layout-wrap>
+          <span>{{$ctrlDlgPNotes.labels.notesExp}}</span>
+        </div>
+        <div layout="row" layout-wrap>
+          <md-input-container flex="100">
+            <label>{{$ctrlDlgPNotes.labels.notes}}</label>
+            <textarea ng-model="$ctrlDlgPNotes.genVars.privateNoteTemp.fld_descricao" md-maxlength="5000" rows="15"></textarea>
+          </md-input-container>
+        </div>
+        <div layout="row" layout-wrap layout-align="end end" flex>
+          <md-button class="md-button" aria-label="{{$ctrlDlgPNotes.btns.save}}"
+            ng-click="$ctrlDlgPNotes.fns.saveNotes()">
+            <ng-md-icon icon="save" style=""></ng-md-icon> {{$ctrlDlgPNotes.btns.save}}
+          </md-button>
+        </div>
+      </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>

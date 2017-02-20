@@ -1,0 +1,29 @@
+<md-bottom-sheet class="md-list md-has-header" ng-controller="appointmentBottomMenu as $ctrl" >
+  <md-subheader ng-cloak>{{$ctrl.labels.options}}</md-subheader>
+  <md-list ng-cloak>
+    <md-list-item>
+      <md-button ng-click="$ctrl.fns.saveAppointment()" class="md-list-item-content">
+        <ng-md-icon icon="save"></ng-md-icon>
+        <span class="md-inline-list-icon-label">{{$ctrl.btns.save}}</span>
+      </md-button>
+    </md-list-item>
+    <md-list-item ng-if="$ctrl.genVars.appointmentCreated">
+      <md-button ng-click="$ctrl.fns.dialogShowPrescriptions()" class="md-list-item-content">
+        <ng-md-icon icon="description"></ng-md-icon>
+        <span class="md-inline-list-icon-label">{{$ctrl.btns.prescriptions}}</span>
+      </md-button>
+    </md-list-item>
+    <md-list-item ng-if="$ctrl.genVars.appointmentCreated">
+      <md-button ng-click="$ctrl.fns.dialogCreatePrescriptions()" class="md-list-item-content">
+        <ng-md-icon icon="insert_drive_file"></ng-md-icon>
+        <span class="md-inline-list-icon-label">{{$ctrl.btns.newPrescriptions}}</span>
+      </md-button>
+    </md-list-item>
+    <md-list-item ng-if="$ctrl.genVars.appointmentCreated">
+      <md-button ng-click="$ctrl.fns.dialogShowNotes()" class="md-list-item-content">
+        <ng-md-icon icon="speaker_notes"></ng-md-icon>
+        <span class="md-inline-list-icon-label">{{$ctrl.btns.notes}}</span>
+      </md-button>
+    </md-list-item>
+  </md-list>
+</md-bottom-sheet>

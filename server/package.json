@@ -1,0 +1,45 @@
+{
+  "name": "farinaserver",
+  "version": "1.0.0",
+  "description": "Servidor do sistema de PEP e HIS para núcleo Farina (UNIFESP)",
+  "main": "index.js",
+  "dependencies": {
+    "argon2": "^0.15.0",
+    "body-parser": "~1.15.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "diacritics": "^1.3.0",
+    "dotenv": "^4.0.0",
+    "express": "^4.14.0",
+    "jade": "~1.11.0",
+    "jsonwebtoken": "^7.2.1",
+    "mongoose": "^4.7.7",
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.0",
+    "smtp-connection": "^3.1.0",
+    "swagger-jsdoc": "^1.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "genDocs": "jsdoc . -r -c jsdoc.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jessicamrbr/Farina.git"
+  },
+  "keywords": [
+    "PEP",
+    "HIS",
+    "transgeneros",
+    "transexuais",
+    "Farina",
+    "UNIFESP"
+  ],
+  "author": "Jéssica Moura Ribeiro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jessicamrbr/Farina/issues"
+  },
+  "homepage": "https://github.com/jessicamrbr/Farina#readme"
+}

@@ -1,0 +1,29 @@
+<top-bar></top-bar>
+
+<md-card>
+  <md-card-title layout="column">
+    <div layout="row" style="margin-bottom:15px;">
+      <md-card-title-text flex=75>
+        <span class="md-headline">{{$ctrl.labels.helloTitle}}</span>
+      </md-card-title-text>
+      <md-card-title-media flex=25>
+        <div class="md-media-sm card-media">
+          <img ng-src="https://image.freepik.com/free-icon/male-user-shadow_318-34042.jpg" class="md-card-image" alt="Washed Out">
+        </div>
+      </md-card-title-media>
+    </div>
+    <div flex=100>
+      <md-card-title-text>
+        <md-list>
+          <md-list-item class="secondary-button-padding" style="margin-bottom:15px; padding: 0px;"
+          layout="row" ng-repeat="item in $ctrl.alertList">
+            <md-button class="md-icon-button" aria-label="{{item.description}}" flex=15>
+              <ng-md-icon icon="announcement"></ng-md-icon>
+            </md-button>
+            <p flex=85>{{item.description}}</p>
+          </md-list-item>
+        </md-list>
+      </md-card-title-text>
+    </div>
+  </md-card-title>
+</md-card>

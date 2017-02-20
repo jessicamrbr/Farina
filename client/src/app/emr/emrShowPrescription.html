@@ -1,0 +1,44 @@
+<md-dialog aria-label="{{$ctrlDlgPresc.labels.prescriptions}}"
+  ng-controller="emrShowPrescription as $ctrlDlgPresc" >
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{$ctrlDlgPresc.labels.prescriptions}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="{{$ctrlDlgPresc.labels.close}}"
+          ng-click="$ctrlDlgPresc.fns.closeMe()">
+          <ng-md-icon icon="close" style=""></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content" layout="row" layout-wrap>
+        <div flex="100" layout="column" ng-repeat="Presc in $ctrlDlgPresc.genVars.currentPrescriptions">
+          <div>
+            <fieldset class="standard">
+              <legend>
+                {{Presc.fld_data | amDateFormat:'DD/MM/YYYY HH:mm'}}<br>
+                {{Presc.fld_profissionalName}}
+              </legend>
+              <div layout="row" layout-wrap flex ng-repeat="itemPresc in Presc.fld_descricao | orderBy:'fld_ordem'">
+                <div flex="100">
+                  <code class="itemPrescription">
+                    {{itemPresc.fld_ordem}} - {{itemPresc.fld_item}}<br>
+                    --> {{itemPresc.fld_DescricaoItem}}
+                  </code>
+                </div>
+              </div>
+              <div layout="row" layout-wrap layout-align="end end" flex>
+                <md-button class="md-icon-button" aria-label="{{$ctrlDlgPresc.labels.print}}"
+                  ng-click="$ctrlDlgPresc.fns.printPresc()">
+                  <ng-md-icon icon="print" style=""></ng-md-icon>
+                </md-button>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>
